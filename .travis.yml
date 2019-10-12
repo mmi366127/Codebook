@@ -1,0 +1,22 @@
+branches:
+  only:
+    - auto-build
+
+services:
+  - docker
+
+install:
+  - docker build docker -t docker.pkg.github.com/brianbbsu/bbqube/auto-build:latest
+
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: auto-build
+
+notifications:
+  email:
+      recipients:
+        - brianbb.su@gmail.com
+      on_success: always
+      on_failure: always
