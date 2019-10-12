@@ -1,5 +1,12 @@
 FROM ubuntu:18.04
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
+tzdata \
+&& rm -rf /var/lib/apt/lists/*
+
+ENV TZ=Asia/Taipei
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 #Install required packages
 #Uncomment or comment out some lines to meet languages you're using.
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install --no-install-recommends -y \
@@ -9,7 +16,6 @@ git \
 wget \
 cabextract \
 unzip \
-openssl \
 ca-certificates \
 && rm -rf /var/lib/apt/lists/*
 
