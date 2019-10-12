@@ -1,6 +1,9 @@
+dist: bionic
 branches:
   only:
     - auto-build
+
+language: generic
 
 services:
   - docker
