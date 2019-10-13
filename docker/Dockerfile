@@ -33,4 +33,6 @@ RUN wget -P /raw_fonts https://noto-website-2.storage.googleapis.com/pkgs/NotoSa
     rm -r /raw_fonts && \
     fc-cache -f -v
 
-ENTRYPOINT ["/bin/bash"]
+COPY build.sh build.sh
+
+ENTRYPOINT ["bash", "build.sh"]
