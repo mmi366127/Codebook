@@ -19,7 +19,7 @@ if [ -f codebook.pdf ]; then
     rm codebook.pdf
 fi
 
-xelatex codebook.tex && xelatex codebook.tex
+xelatex codebook.tex && xelatex codebook.tex && xelatex codebook.tex
 
 curtime=$(date +"%Y-%m-%d_%H:%M:%S")
 
