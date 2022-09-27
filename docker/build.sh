@@ -20,12 +20,6 @@ if [ -f codebook.pdf ]; then
 fi
 
 xelatex codebook.tex && xelatex codebook.tex && xelatex codebook.tex
-mv codebook.pdf codebook.default.pdf
-
-# test clang-format
-clang-format-13 -i [23456789]_*/*.cpp
-xelatex codebook.tex && xelatex codebook.tex && xelatex codebook.tex
-mv codebook.pdf codebook.test.pdf
 
 curtime=$(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -33,8 +27,7 @@ echo "Current time is: $curtime."
 
 git clone https://brianbbsu:$GITHUB_TOKEN@github.com/brianbbsu/BBQube.git --branch codebook --single-branch /codebook/
 
-cp codebook.default.pdf /codebook/codebook.pdf
-cp codebook.test.pdf /codebook/codebook.test.pdf
+cp codebook.pdf /codebook/codebook.pdf
 cd /codebook/
 
 git add .
