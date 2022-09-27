@@ -17,7 +17,6 @@ wget \
 cabextract \
 unzip \
 ca-certificates \
-gnupg \
 && rm -rf /var/lib/apt/lists/*
 
 COPY consolas.sh consolas.sh
@@ -33,15 +32,6 @@ RUN wget -P /raw_fonts https://noto-website-2.storage.googleapis.com/pkgs/NotoSa
     mv -t /usr/share/fonts/noto *-DemiLight.otf *-Bold.otf *-Black.otf && \
     rm -r /raw_fonts && \
     fc-cache -f -v
-
-# llvm 13 sources
-RUN echo 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-13 main' >> /etc/apt/sources.list.d/llvm-13.list
-RUN echo 'deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic-13 main' >> /etc/apt/sources.list.d/llvm-13.list
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install --no-install-recommends -y \
-clang-format-13 \
-&& rm -rf /var/lib/apt/lists/*
 
 COPY build.sh build.sh
 
