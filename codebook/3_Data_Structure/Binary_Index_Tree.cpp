@@ -1,5 +1,5 @@
 struct Binary_Index_Tree {
-  int bit[MAXN + 1], lazy[MAXN + 1], n;
+  int bit[maxn + 1], lazy[maxn + 1], n;
   int lb(int x) { return x & -x; }
   void init(int _n, int *data) {
     n = _n;

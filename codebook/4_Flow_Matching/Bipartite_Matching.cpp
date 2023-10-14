@@ -1,8 +1,8 @@
 struct Bipartite_Matching { // 0-base
     int l, r;
-    int mp[MAXN], mq[MAXN];
-    int dis[MAXN], cur[MAXN];
-    vector<int> G[MAXN];
+    int mp[maxn], mq[maxn];
+    int dis[maxn], cur[maxn];
+    vector<int> G[maxn];
     bool dfs(int u) {
         for (int &i = cur[u]; i < SZ(G[u]); ++i) {
             int e = G[u][i];
@@ -45,7 +45,7 @@ struct Bipartite_Matching { // 0-base
         return rt;
     }
     void add_edge(int s, int t) {
-        G[s].pb(t);
+        G[s].eb(t);
     }
     void init(int _l, int _r) {
         l = _l, r = _r;

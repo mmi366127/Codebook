@@ -1,8 +1,8 @@
-const int MAXN = 11000, MAXM = 405;
+const int maxn = 11000, maxm = 405;
 const double eps = 1E-10;
-double a[MAXN][MAXM], b[MAXN], c[MAXM];
-double d[MAXN][MAXM], x[MAXM];
-int ix[MAXN + MAXM]; // !!! array all indexed from 0
+double a[maxn][maxm], b[maxn], c[maxm];
+double d[maxn][maxm], x[maxm];
+int ix[maxn + maxm]; // !!! array all indexed from 0
 // max{cx} subject to {Ax<=b,x>=0}
 // n: constraints, m: vars !!!
 // x[] is the optimal solution vector

@@ -1,9 +1,9 @@
 // only works for integer coordinates!!
 
 bool Flag; // 0: insert Line, 1: lower_bound x
-template<class val = ll, class compare = less<val>> // sort lines with comp
+template<class val = int, class compare = less<val>> // sort lines with comp
 struct DynamicConvexTrick{
-  static const ll minx = 0, maxx = ll(1e9) + 5;
+  static const int minx = 0, maxx = int(1e9) + 5;
   static compare comp;
   struct Line{
     val a, b, l, r; // line ax + b in [l, r]

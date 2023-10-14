@@ -1,9 +1,9 @@
-map<ll, int> cnt;
-void PollardRho(ll n) {
+map<int, int> cnt;
+void PollardRho(int n) {
   if (n == 1) return;
   if (prime(n)) return ++cnt[n], void();        
   if (n % 2 == 0) return PollardRho(n / 2), ++cnt[2], void();
-  ll x = 2, y = 2, d = 1, p = 1;
+  int x = 2, y = 2, d = 1, p = 1;
   #define f(x, n, p) ((mul(x, x, n) + p) % n)
   while (true) {
     if (d != n && d != 1) {

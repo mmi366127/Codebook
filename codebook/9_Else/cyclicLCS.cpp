@@ -3,9 +3,9 @@
 #define U 2
 const int mov[3][2] = {0, -1, -1, -1, -1, 0};
 int al, bl;
-char a[MAXL * 2], b[MAXL * 2]; // 0-indexed
-int dp[MAXL * 2][MAXL];
-char pred[MAXL * 2][MAXL];
+char a[maxl * 2], b[maxl * 2]; // 0-indexed
+int dp[maxl * 2][maxl];
+char pred[maxl * 2][maxl];
 inline int lcs_length(int r) {
   int i = r + al, j = bl, l = 0;
   while (i > r) {
@@ -38,7 +38,7 @@ int cyclic_lcs() {
   // a, b, al, bl should be properly filled
   // note: a WILL be altered in process
   //        -- concatenated after itself
-  char tmp[MAXL];
+  char tmp[maxl];
   if (al > bl) {
     swap(al, bl);
     strcpy(tmp, a);

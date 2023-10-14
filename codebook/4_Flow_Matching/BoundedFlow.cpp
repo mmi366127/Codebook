@@ -11,12 +11,12 @@ struct BoundedFlow { // 0-base
   }
   void add_edge(int u, int v, int lcap, int rcap) {
     cnt[u] -= lcap, cnt[v] += lcap;
-    G[u].pb(edge{v, rcap, lcap, SZ(G[v])});
-    G[v].pb(edge{u, 0, 0, SZ(G[u]) - 1});
+    G[u].eb(edge{v, rcap, lcap, SZ(G[v])});
+    G[v].eb(edge{u, 0, 0, SZ(G[u]) - 1});
   }
   void add_edge(int u, int v, int cap) {
-    G[u].pb(edge{v, cap, 0, SZ(G[v])});
-    G[v].pb(edge{u, 0, 0, SZ(G[u]) - 1});
+    G[u].eb(edge{v, cap, 0, SZ(G[v])});
+    G[v].eb(edge{u, 0, 0, SZ(G[u]) - 1});
   }
   int dfs(int u, int cap) {
     if (u == t || !cap) return cap;
@@ -64,15 +64,15 @@ struct BoundedFlow { // 0-base
     if (sum != maxflow(n + 1, n + 2)) sum = -1;
     for (int i = 0; i < n; ++i)
       if (cnt[i] > 0)
-        G[n + 1].pop_back(), G[i].pop_back();
+        G[n + 1].pb(), G[i].pb();
       else if (cnt[i] < 0)
-        G[i].pop_back(), G[n + 2].pop_back();
+        G[i].pb(), G[n + 2].pb();
     return sum != -1;
   }
   int solve(int _s, int _t) {
     add_edge(_t, _s, INF);
     if (!solve()) return -1; // invalid flow
     int x = G[_t].back().flow;
-    return G[_t].pop_back(), G[_s].pop_back(), x;
+    return G[_t].pb(), G[_s].pb(), x;
   }
 };

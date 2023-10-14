@@ -20,10 +20,10 @@ void dfs(int u, int pa = -1) {
         int t;
         do {
           bcc_id[t = st[--top]] = bcc_cnt;
-          bcc[bcc_cnt].push_back(t);
+          bcc[bcc_cnt].eb(t);
         } while (t != v);
         bcc_id[u] = bcc_cnt;
-        bcc[bcc_cnt].pb(u);
+        bcc[bcc_cnt].eb(u);
       }
     } else if (dfn[v] < dfn[u] && v != pa)
       low[u] = min(low[u], dfn[v]);
@@ -46,5 +46,5 @@ void bcc_solve(int n) {
   for (int i = 1; i <= bcc_cnt && !cir[i]; ++i)
     for (int j : bcc[i])
       if (is_cut[j])
-        nG[i].pb(bcc_id[j]), nG[bcc_id[j]].pb(i);
+        nG[i].eb(bcc_id[j]), nG[bcc_id[j]].eb(i);
 }

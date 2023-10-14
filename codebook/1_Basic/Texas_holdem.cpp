@@ -19,7 +19,7 @@ struct cards{
         ++i.X,flag=1;
         break;
       }
-    if(!flag) v.pb(pii(1,rk[b]));
+    if(!flag) v.eb(pii(1,rk[b]));
   }
   void insert(string s){insert(s[0],s[1]);}
   void ready(){

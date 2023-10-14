@@ -6,7 +6,7 @@ void solve(Point *a, int n) {
     for (int i = 0; i < n; ++i) {
         for (auto it = st.lower_bound(a[i]); it != st.end(); it = st.erase(it)) {
             if (it -> x - it -> y < a[i].x - a[i].y) break;
-            es.push_back({it -> u, a[i].u, dist(*it, a[i])});
+            es.eb({it -> u, a[i].u, dist(*it, a[i])});
         }
         st.insert(a[i]);
     }

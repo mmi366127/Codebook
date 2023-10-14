@@ -4,9 +4,9 @@ DSU: disjoint set
 min_heap<T, Info>: min heap for type {T, Info} with lazy tag
 - .push({w, i}), .top(), .join(heap), .pop(), .empty(), .add_lazy(v)
 */
-struct E { int s, t; ll w; }; // 0-base
+struct E { int s, t; int w; }; // 0-base
 vector<int> dmst(const vector<E> &e, int n, int root) {
-  vector<min_heap<ll, int>> h(n * 2);
+  vector<min_heap<int, int>> h(n * 2);
   for (int i = 0; i < SZ(e); ++i)
     h[e[i].t].push({e[i].w, i});
   DSU dsu(n * 2);
@@ -33,7 +33,7 @@ vector<int> dmst(const vector<E> &e, int n, int root) {
   for (int i = pc - 1; i >= 0; i--) if (i != root && v[i] != n) {
     for (int f = e[r[i]].t; ~f && v[f] != n; f = pa[f])
       v[f] = n;
-    ans.pb(r[i]);
+    ans.eb(r[i]);
   }
   return ans; // default minimize, returns edgeid array
 } // O(Ef(E)), f(E) from min_heap

@@ -11,12 +11,12 @@ struct palindromic_tree {
   vector<char> s;
   int last, n;
   palindromic_tree() : St(2), last(1), n(0) {
-    St[0].fail = 1, St[1].len = -1, s.pb(-1);
+    St[0].fail = 1, St[1].len = -1, s.eb(-1);
   }
   inline void clear() {
     St.clear(), s.clear(), last = 1, n = 0;
-    St.pb(0), St.pb(-1);
-    St[0].fail = 1, s.pb(-1);
+    St.eb(0), St.eb(-1);
+    St[0].fail = 1, s.eb(-1);
   }
   inline int get_fail(int x) {
     while (s[n - St[x].len - 1] != s[n])
@@ -24,11 +24,11 @@ struct palindromic_tree {
     return x;
   }
   inline void add(int c) {
-    s.push_back(c -= 'a'), ++n;
+    s.eb(c -= 'a'), ++n;
     int cur = get_fail(last);
     if (!St[cur].next[c]) {
       int now = SZ(St);
-      St.pb(St[cur].len + 2);
+      St.eb(St[cur].len + 2);
       St[now].fail =
         St[get_fail(St[cur].fail)].next[c];
       St[cur].next[c] = now;

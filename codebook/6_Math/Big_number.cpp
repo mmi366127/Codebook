@@ -3,19 +3,19 @@ inline string to_string(const T& x){
   stringstream ss;
   return ss<<x,ss.str();
 }
-struct bigN:vector<ll>{
+struct bigN:vector<int>{
   const static int base=1000000000,width=log10(base);
   bool negative;
-  bigN(const_iterator a,const_iterator b):vector<ll>(a,b){}
+  bigN(const_iterator a,const_iterator b):vector<int>(a,b){}
   bigN(string s){
     if(s.empty())return;
     if(s[0]=='-')negative=1,s=s.substr(1);
     else negative=0;
     for(int i=int(s.size())-1;i>=0;i-=width){
-      ll t=0;
+      int t=0;
       for(int j=max(0,i-width+1);j<=i;++j)
         t=t*10+s[j]-'0';
-      push_back(t);
+      eb(t);
     }
     trim();
   }
@@ -23,13 +23,13 @@ struct bigN:vector<ll>{
     bigN(const T &x):bigN(to_string(x)){}
   bigN():negative(0){}
   void trim(){
-    while(size()&&!back())pop_back();
+    while(size()&&!back())pb();
     if(empty())negative=0;
   }
   void carry(int _base=base){
     for(size_t i=0;i<size();++i){
       if(at(i)>=0&&at(i)<_base)continue;
-      if(i+1u==size())push_back(0);
+      if(i+1u==size())eb(0);
       int r=at(i)%_base;
       if(r<0)r+=_base;
       at(i+1)+=(at(i)-r)/_base,at(i)=r;
@@ -88,7 +88,7 @@ struct bigN:vector<ll>{
         if((res[i+j]+=at(i)*b[j])>=base){
           res[i+j+1]+=res[i+j]/base;
           res[i+j]%=base;
-        }//­¼ªk¥Îcarry·|·¸¦ì
+        }//ï¿½ï¿½ï¿½kï¿½ï¿½carryï¿½|ï¿½ï¿½ï¿½ï¿½
     return res.trim(),res;
   }
   bigN operator/(const bigN &b)const{
@@ -101,7 +101,7 @@ struct bigN:vector<ll>{
       r=r*base+x[i];
       int s1=r.size()<=y.size()?0:r[y.size()];
       int s2=r.size()<y.size()?0:r[y.size()-1];
-      int d=(ll(base)*s1+s2)/y.back();
+      int d=(int(base)*s1+s2)/y.back();
       r=r-y*d;
       while(r.negative)r=r+y,--d;
       q[i]=d;

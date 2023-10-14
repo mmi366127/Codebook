@@ -19,8 +19,8 @@ int filter(const vector<int> &g, bool add = true) {
     assert(p[i] >= 0 && p[i] < SZ(lk[i]));
     if (lk[i][p[i]] == -1) {
       if (add) {
-        bkts[i].pb(p);
-        binv[i].pb(inv(p));
+        bkts[i].eb(p);
+        binv[i].eb(inv(p));
         lk[i][p[i]] = SZ(bkts[i]) - 1;
       }
       return i;
@@ -39,8 +39,8 @@ void solve(const vector<vector<int>> &gen, int _n) {
   iota(iden.begin(), iden.end(), 0);
   for (int i = 0; i < n; ++i) {
     lk[i].resize(n, -1);
-    bkts[i].pb(iden);
-    binv[i].pb(iden);
+    bkts[i].eb(iden);
+    binv[i].eb(iden);
     lk[i][i] = 0;
   }
   for (int i = 0; i < SZ(gen); ++i) filter(gen[i]);
@@ -64,8 +64,8 @@ void solve(const vector<vector<int>> &gen, int _n) {
       }
   }
 }
-ll size() {
-  ll res = 1;
+int size() {
+  int res = 1;
   for (int i = 0; i < n; ++i) res = res * SZ(bkts[i]);
   return res;
 }}

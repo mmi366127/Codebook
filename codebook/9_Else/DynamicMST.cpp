@@ -13,7 +13,7 @@ void contract(int l, int r, vector<int> v, vector<int> &x, vector<int> &y) {
   for (int i = l; i <= r; ++i) djs.merge(st[qr[i].first], ed[qr[i].first]);
   for (int i = 0; i < (int)v.size(); ++i) {
     if (djs.find(st[v[i]]) != djs.find(ed[v[i]])) {
-      x.push_back(v[i]);
+      x.eb(v[i]);
       djs.merge(st[v[i]], ed[v[i]]);
     }
   }
@@ -22,7 +22,7 @@ void contract(int l, int r, vector<int> v, vector<int> &x, vector<int> &y) {
   for (int i = 0; i < (int)x.size(); ++i) djs.merge(st[x[i]], ed[x[i]]);
   for (int i = 0; i < (int)v.size(); ++i) {
     if (djs.find(st[v[i]]) != djs.find(ed[v[i]])) {
-      y.push_back(v[i]);
+      y.eb(v[i]);
       djs.merge(st[v[i]], ed[v[i]]);
     }
   }
@@ -46,7 +46,7 @@ void solve(int l, int r, vector<int> v, long long c) {
   vector<int> x, y;
   for (int i = m + 1; i <= r; ++i) {
     cnt[qr[i].first]--;
-    if (cnt[qr[i].first] == 0) lv.push_back(qr[i].first);
+    if (cnt[qr[i].first] == 0) lv.eb(qr[i].first);
   }
   contract(l, m, lv, x, y);
   long long lc = c, rc = c;
@@ -61,7 +61,7 @@ void solve(int l, int r, vector<int> v, long long c) {
   for (int i = m + 1; i <= r; ++i) cnt[qr[i].first]++;
   for (int i = l; i <= m; ++i) {
     cnt[qr[i].first]--;
-    if (cnt[qr[i].first] == 0) rv.push_back(qr[i].first);
+    if (cnt[qr[i].first] == 0) rv.eb(qr[i].first);
   }
   contract(m + 1, r, rv, x, y);
   djs.save();

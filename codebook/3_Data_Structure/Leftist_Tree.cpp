@@ -1,12 +1,12 @@
 struct node {
-  ll v, data, sz, sum;
+  int v, data, sz, sum;
   node *l, *r;
-  node(ll k)
+  node(int k)
     : v(0), data(k), sz(1), l(0), r(0), sum(k) {}
 };
-ll sz(node *p) { return p ? p->sz : 0; }
-ll V(node *p) { return p ? p->v : -1; }
-ll sum(node *p) { return p ? p->sum : 0; }
+int sz(node *p) { return p ? p->sz : 0; }
+int V(node *p) { return p ? p->v : -1; }
+int sum(node *p) { return p ? p->sum : 0; }
 node *merge(node *a, node *b) {
   if (!a || !b) return a ? a : b;
   if (a->data < b->data) swap(a, b);

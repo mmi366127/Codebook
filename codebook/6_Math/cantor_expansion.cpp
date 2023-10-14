@@ -1,8 +1,8 @@
-#define MAXN 11
-int factorial[MAXN];
+#define maxn 11
+int factorial[maxn];
 inline void init(){
   factorial[0]=1;
-  for(int i=1;i<=MAXN;++i){
+  for(int i=1;i<=maxn;++i){
     factorial[i]=factorial[i-1]*i;
   }
 }
@@ -28,7 +28,7 @@ inline std::vector<int> decode(int a,int n){
         --t;
       }
     }
-    res.push_back(j);
+    res.eb(j);
     vis[j]=1;
     a%=factorial[i];
   }

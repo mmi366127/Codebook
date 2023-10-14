@@ -2,8 +2,8 @@ struct MaxFlow { // 0-base
   struct edge {
     int to, cap, flow, rev;
   };
-  vector<edge> G[MAXN];
-  int s, t, dis[MAXN], cur[MAXN], n;
+  vector<edge> G[maxn];
+  int s, t, dis[maxn], cur[maxn], n;
   int dfs(int u, int cap) {
     if (u == t || !cap) return cap;
     for (int &i = cur[u]; i < (int)G[u].size(); ++i) {
@@ -53,7 +53,7 @@ struct MaxFlow { // 0-base
       for (auto &j : G[i]) j.flow = 0;
   }
   void add_edge(int u, int v, int cap) {
-    G[u].pb(edge{v, cap, 0, (int)G[v].size()});
-    G[v].pb(edge{u, 0, 0, (int)G[u].size() - 1});
+    G[u].eb(edge{v, cap, 0, (int)G[v].size()});
+    G[v].eb(edge{u, 0, 0, (int)G[u].size() - 1});
   }
 };

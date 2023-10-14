@@ -16,7 +16,7 @@ vector<Line> go( const Cir& c1 , const Cir& c2 , int sign1 ){
     if (sign(p1.X - p2.X) == 0 and
         sign(p1.Y - p2.Y) == 0)
       p2 = p1 + perp(c2.O - c1.O);
-    ret.pb(Line(p1, p2));
+    ret.eb(Line(p1, p2));
   }
   return ret;
 }

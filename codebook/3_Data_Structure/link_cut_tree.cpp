@@ -43,7 +43,7 @@ void rotate(Splay *x) {
 void splay(Splay *x) {
   vector<Splay *> splayVec;
   for (Splay *q = x;; q = q->f) {
-    splayVec.pb(q);
+    splayVec.eb(q);
     if (q->isr()) break;
   }
   reverse(ALL(splayVec));

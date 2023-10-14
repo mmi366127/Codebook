@@ -19,7 +19,7 @@ struct Poly {
     if (SZ(poly) == 1 && poly[0] == 0)
       return;
     mint nw = get_val(base + SZ(poly));
-    poly.pb(nw);
+    poly.eb(nw);
     for (int i = 1; i < SZ(poly); ++i)
       poly[i] += poly[i - 1];
   }

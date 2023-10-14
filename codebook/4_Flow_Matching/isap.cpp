@@ -1,5 +1,5 @@
 struct Maxflow {
-  static const int MAXV = 20010;
+  static const int maxv = 20010;
   static const int INF = 1000000;
   struct Edge {
     int v, c, r;
@@ -7,8 +7,8 @@ struct Maxflow {
       : v(_v), c(_c), r(_r) {}
   };
   int s, t;
-  vector<Edge> G[MAXV * 2];
-  int iter[MAXV * 2], d[MAXV * 2], gap[MAXV * 2], tot;
+  vector<Edge> G[maxv * 2];
+  int iter[maxv * 2], d[maxv * 2], gap[maxv * 2], tot;
   void init(int x) {
     tot = x + 2;
     s = x + 1, t = x + 2;
@@ -18,8 +18,8 @@ struct Maxflow {
     }
   }
   void addEdge(int u, int v, int c) {
-    G[u].push_back(Edge(v, c, SZ(G[v])));
-    G[v].push_back(Edge(u, 0, SZ(G[u]) - 1));
+    G[u].eb(Edge(v, c, SZ(G[v])));
+    G[v].eb(Edge(u, 0, SZ(G[u]) - 1));
   }
   int dfs(int p, int flow) {
     if (p == t) return flow;
@@ -45,8 +45,7 @@ struct Maxflow {
   int solve() {
     int res = 0;
     gap[0] = tot;
-    for (res = 0; d[s] < tot; res += dfs(s, INF))
-      ;
+    for (res = 0; d[s] < tot; res += dfs(s, INF));
     return res;
   }
 } flow;

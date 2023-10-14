@@ -1,16 +1,16 @@
-double rat(pll a, pll b) {
+double rat(pii a, pii b) {
   return sign(b.X) ? (double)a.X / b.X : (double)a.Y / b.Y;
 } // all poly. should be ccw
-double polyUnion(vector<vector<pll>> &poly) {
+double polyUnion(vector<vector<pii>> &poly) {
   double res = 0;
   for (auto &p : poly)
     for (int a = 0; a < SZ(p); ++a) {
-      pll A = p[a], B = p[(a + 1) % SZ(p)];
+      pii A = p[a], B = p[(a + 1) % SZ(p)];
       vector<pair<double, int>> segs = {{0, 0}, {1, 0}};
       for (auto &q : poly) {
         if (&p == &q) continue;
         for (int b = 0; b < SZ(q); ++b) {
-          pll C = q[b], D = q[(b + 1) % SZ(q)];
+          pii C = q[b], D = q[(b + 1) % SZ(q)];
           int sc = ori(A, B, C), sd = ori(A, B, D);
           if (sc != sd && min(sc, sd) < 0) {
             double sa = cross(D - C, A - C), sb = cross(D - C, B - C);

@@ -1,13 +1,13 @@
 struct Matrix {
   int n, m;
-  ll M[MAXN][MAXN];
+  int M[maxn][maxn];
   int row_swap(int i, int j) {
     if (i == j) return 0;
     for (int k = 0; k < m; ++k)
       swap(M[i][k], M[j][k]);
     return 1;
   }
-  ll det() { // return the number of swaps
+  int det() { // return the number of swaps
     int rt = 0;
     for (int i = 0; i < n; ++i) {
       int piv = i;

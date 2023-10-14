@@ -1,13 +1,13 @@
 const double INF = 1e18, qi = acos(-1) / 2 * 3;
-pdd solve(vector<pll> &dots) {
+pdd solve(vector<pii> &dots) {
 #define diff(u, v) (dots[u] - dots[v])
 #define vec(v) (dots[v] - dots[i])
   hull(dots);
   double Max = 0, Min = INF, deg;
   int n = SZ(dots);
-  dots.pb(dots[0]);
+  dots.eb(dots[0]);
   for (int i = 0, u = 1, r = 1, l = 1; i < n; ++i) {
-    pll nw = vec(i + 1);
+    pii nw = vec(i + 1);
     while (cross(nw, vec(u + 1)) > cross(nw, vec(u)))
       u = (u + 1) % n;
     while (dot(nw, vec(r + 1)) > dot(nw, vec(r)))

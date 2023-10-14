@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-constexpr int MAXN = 1 << 20;
+using int = long long;
+constexpr int maxn = 1 << 20;
 template<int MOD, int RT>
 struct Zp {
     #define OP(op) static int op(int x, int y)
     OP(add) { return (x += y) >= MOD ? x - MOD : x; }
     OP(sub) { return (x -= y) < 0 ? x + MOD : x; }
-    OP(mul) { return int(ll(x) * y % MOD); }
+    OP(mul) { return int(int(x) * y % MOD); }
     static int mpow(int a, int n) {
         int r = 1;
         while (n) {
@@ -22,9 +22,9 @@ struct Zp {
 };
 template<int MOD, int RT>
 struct Zp<MOD, RT>::NTT {
-    int w[MAXN];
+    int w[maxn];
     NTT() {
-        int s = MAXN / 2, dw = mpow(RT, (MOD - 1) / MAXN);
+        int s = maxn / 2, dw = mpow(RT, (MOD - 1) / maxn);
         for (; s; s >>= 1, dw = mul(dw, dw)) {
             w[s] = 1;
             for (int j = 1; j < s; ++j) 
@@ -53,7 +53,7 @@ struct Zp<MOD, RT>::NTT {
 template<int MOD, int RT>
 typename Zp<MOD, RT>::NTT Zp<MOD, RT>::ntt;
 using ctx1 = Zp<998244353, 3>;
-int a[MAXN];
+int a[maxn];
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -61,11 +61,11 @@ int main() {
         a[i] = rand() % 100;
         cout << a[i] << " \n"[i == 9];
     }
-    ctx1::ntt.apply(a, MAXN);
+    ctx1::ntt.apply(a, maxn);
     for (int i = 0; i < 10; ++i) {
         cout << a[i] << " \n"[i == 9];
     }
-    ctx1::ntt.apply(a, MAXN, 1);
+    ctx1::ntt.apply(a, maxn, 1);
     for (int i = 0; i < 10; ++i) {
         cout << a[i] << " \n"[i == 9];
     }

@@ -1,17 +1,17 @@
 struct zhu_liu { // O(VE)
   struct edge {
     int u, v;
-    ll w;
+    int w;
   };
   vector<edge> E; // 0-base
   int pe[N], id[N], vis[N];
-  ll in[N];
+  int in[N];
   void init() { E.clear(); }
-  void add_edge(int u, int v, ll w) {
-    if (u != v) E.pb(edge{u, v, w});
+  void add_edge(int u, int v, int w) {
+    if (u != v) E.eb(edge{u, v, w});
   }
-  ll build(int root, int n) {
-    ll ans = 0;
+  int build(int root, int n) {
+    int ans = 0;
     for (;;) {
       fill_n(in, n, INF);
       for (int i = 0; i < SZ(E); ++i)

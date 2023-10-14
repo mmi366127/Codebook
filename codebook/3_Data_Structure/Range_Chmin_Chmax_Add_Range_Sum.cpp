@@ -1,17 +1,17 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
-typedef long long ll;
+typedef long long int;
 
-const int MAXC = 200005;
-const ll INF = 1e18;
+const int maxc = 200005;
+const int INF = 1e18;
 
 struct node {
-  ll sum;
-  ll mx, mxcnt, smx;
-  ll mi, micnt, smi;
-  ll lazymax, lazymin, lazyadd;
-  node(ll k = 0)
+  int sum;
+  int mx, mxcnt, smx;
+  int mi, micnt, smi;
+  int lazymax, lazymin, lazyadd;
+  node(int k = 0)
     : sum(k), mx(k), mxcnt(1), smx(-INF), mi(k),
       micnt(1), smi(INF), lazymax(-INF), lazymin(INF),
       lazyadd(0) {}
@@ -45,11 +45,11 @@ struct node {
     rt.lazyadd = 0;
     return rt;
   }
-} seg[MAXC << 2];
+} seg[maxc << 2];
 
-ll a[MAXC];
+int a[maxc];
 
-void give_tag_min(int rt, ll t) {
+void give_tag_min(int rt, int t) {
   if (t >= seg[rt].mx) return;
   seg[rt].lazymin = t;
   seg[rt].lazymax = min(seg[rt].lazymax, t);
@@ -59,7 +59,7 @@ void give_tag_min(int rt, ll t) {
   seg[rt].mx = t;
 }
 
-void give_tag_max(int rt, ll t) {
+void give_tag_max(int rt, int t) {
   if (t <= seg[rt].mi) return;
   seg[rt].lazymax = t;
   seg[rt].sum += seg[rt].micnt * (t - seg[rt].mi);
@@ -68,7 +68,7 @@ void give_tag_max(int rt, ll t) {
   seg[rt].mi = t;
 }
 
-void give_tag_add(int l, int r, int rt, ll t) {
+void give_tag_add(int l, int r, int rt, int t) {
   seg[rt].lazyadd += t;
   if (seg[rt].lazymax != -INF) seg[rt].lazymax += t;
   if (seg[rt].lazymin != INF) seg[rt].lazymin += t;
@@ -76,7 +76,7 @@ void give_tag_add(int l, int r, int rt, ll t) {
   if (seg[rt].smx != -INF) seg[rt].smx += t;
   seg[rt].mi += t;
   if (seg[rt].smi != INF) seg[rt].smi += t;
-  seg[rt].sum += (ll)(r - l + 1) * t;
+  seg[rt].sum += (int)(r - l + 1) * t;
 }
 
 void tag_down(int l, int r, int rt) {
@@ -108,7 +108,7 @@ void build(int l, int r, int rt) {
 }
 
 void modifymax(
-  int L, int R, int l, int r, int rt, ll t) {
+  int L, int R, int l, int r, int rt, int t) {
   if (L <= l && R >= r && t < seg[rt].smi)
     return give_tag_max(rt, t);
   if (l != r) tag_down(l, r, rt);
@@ -120,7 +120,7 @@ void modifymax(
 }
 
 void modifymin(
-  int L, int R, int l, int r, int rt, ll t) {
+  int L, int R, int l, int r, int rt, int t) {
   if (L <= l && R >= r && t > seg[rt].smx)
     return give_tag_min(rt, t);
   if (l != r) tag_down(l, r, rt);
@@ -132,7 +132,7 @@ void modifymin(
 }
 
 void modifyadd(
-  int L, int R, int l, int r, int rt, ll t) {
+  int L, int R, int l, int r, int rt, int t) {
   if (L <= l && R >= r)
     return give_tag_add(l, r, rt, t);
   if (l != r) tag_down(l, r, rt);
@@ -143,7 +143,7 @@ void modifyadd(
   seg[rt] = seg[rt << 1] + seg[rt << 1 | 1];
 }
 
-ll query(int L, int R, int l, int r, int rt) {
+int query(int L, int R, int l, int r, int rt) {
   if (L <= l && R >= r) return seg[rt].sum;
   if (l != r) tag_down(l, r, rt);
   int mid = (l + r) >> 1;
@@ -162,7 +162,7 @@ int main() {
   build(1, n, 1);
   while (m--) {
     int k, x, y;
-    ll t;
+    int t;
     cin >> k >> x >> y, ++x;
     if (k == 0) cin >> t, modifymin(x, y, 1, n, 1, t);
     else if (k == 1)

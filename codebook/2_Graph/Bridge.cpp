@@ -9,8 +9,8 @@ void init(int n) {
 }
 
 void add_edge(int a, int b) {
-  G[a].pb(pii(b, SZ(edge))), G[b].pb(pii(a, SZ(edge)));
-  edge.pb(pii(a, b));
+  G[a].eb(pii(b, SZ(edge))), G[b].eb(pii(a, SZ(edge)));
+  edge.eb(pii(a, b));
 }
 
 void dfs(int u, int f) {

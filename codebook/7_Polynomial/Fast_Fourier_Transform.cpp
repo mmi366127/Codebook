@@ -1,11 +1,11 @@
-template<int MAXN>
+template<int maxn>
 struct FFT {
   using val_t = complex<double>;
   const double PI = acos(-1);
-  val_t w[MAXN];
+  val_t w[maxn];
   FFT() {
-    for (int i = 0; i < MAXN; ++i) {
-      double arg = 2 * PI * i / MAXN;
+    for (int i = 0; i < maxn; ++i) {
+      double arg = 2 * PI * i / maxn;
       w[i] = val_t(cos(arg), sin(arg));
     }
   }

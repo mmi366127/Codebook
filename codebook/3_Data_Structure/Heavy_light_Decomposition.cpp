@@ -8,8 +8,8 @@ struct Heavy_light_Decomposition { // 1-base
       G[i].clear(), mxson[i] = 0;
   }
   void add_edge(int a, int b, int w) {
-    G[a].pb(pii(b, et));
-    G[b].pb(pii(a, et));
+    G[a].eb(pii(b, et));
+    G[b].eb(pii(a, et));
     edge[et++] = w;
   }
   void dfs(int u, int f, int d) {

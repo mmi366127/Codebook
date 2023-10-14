@@ -1,5 +1,5 @@
-pll area_pair(Line a, Line b) 
-{ return pll(cross(a.Y - a.X, b.X - a.X), cross(a.Y - a.X, b.Y - a.X)); }
+pii area_pair(Line a, Line b) 
+{ return pii(cross(a.Y - a.X, b.X - a.X), cross(a.Y - a.X, b.Y - a.X)); }
 bool isin(Line l0, Line l1, Line l2) {
   // Check inter(l1, l2) strictly in l0
   auto [a02X, a02Y] = area_pair(l0, l2);
@@ -20,13 +20,13 @@ vector<Line> halfPlaneInter(vector<Line> arr) {
     if (cmp(dq.back().Y - dq.back().X, p.Y - p.X, 0) == -1)
       continue;
     while (SZ(dq) >= 2 && !isin(p, dq[SZ(dq) - 2], dq.back()))
-      dq.pop_back();
+      dq.pb();
     while (SZ(dq) >= 2 && !isin(p, dq[0], dq[1]))
       dq.pop_front();
-    dq.pb(p);
+    dq.eb(p);
   }
   while (SZ(dq) >= 3 && !isin(dq[0], dq[SZ(dq) - 2], dq.back()))
-    dq.pop_back();
+    dq.pb();
   while (SZ(dq) >= 3 && !isin(dq.back(), dq[0], dq[1]))
     dq.pop_front();
   return vector<Line>(ALL(dq));

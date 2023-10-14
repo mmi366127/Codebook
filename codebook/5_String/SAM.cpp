@@ -1,7 +1,7 @@
-const int MAXM = 1000010;
+const int maxm = 1000010;
 struct SAM {
-  int tot, root, lst, mom[MAXM], mx[MAXM];
-  int nxt[MAXM][33], cnt[MAXM], in[MAXM];
+  int tot, root, lst, mom[maxm], mx[maxm];
+  int nxt[maxm][33], cnt[maxm], in[maxm];
   int newNode() {
     int res = ++tot;
     fill(nxt[res], nxt[res] + 33, 0);

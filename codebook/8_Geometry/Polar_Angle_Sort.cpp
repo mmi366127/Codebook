@@ -1,4 +1,4 @@
-int cmp(pll a, pll b, bool same = true) {
+int cmp(pii a, pii b, bool same = true) {
 #define is_neg(k) (sign(k.Y) < 0 || (sign(k.Y) == 0 && sign(k.X) < 0))
   int A = is_neg(a), B = is_neg(b);
   if (A != B)

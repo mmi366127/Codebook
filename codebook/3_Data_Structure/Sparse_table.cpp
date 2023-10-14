@@ -1,5 +1,5 @@
 struct Sparse_table {
-  int st[__lg(MAXN) + 1][MAXN], n;
+  int st[__lg(maxn) + 1][maxn], n;
   void init(int _n, int *data) {
     n = _n;
     for (int i = 0; i < n; ++i) st[i][0] = data[i];

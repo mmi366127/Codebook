@@ -1,12 +1,12 @@
 // Divides into multiple triangle, and sum up
 const double PI=acos(-1);
-double _area(pdd pa, pdd pb, double r){	
-  if(abs(pa)<abs(pb)) swap(pa, pb);
-  if(abs(pb)<eps) return 0;
+double _area(pdd pa, pdd eb, double r){	
+  if(abs(pa)<abs(eb)) swap(pa, eb);
+  if(abs(eb)<eps) return 0;
   double S, h, theta;
-  double a=abs(pb),b=abs(pa),c=abs(pb-pa);
-  double cosB = dot(pb,pb-pa) / a / c, B = acos(cosB);
-  double cosC = dot(pa,pb) / a / b, C = acos(cosC);
+  double a=abs(eb),b=abs(pa),c=abs(eb-pa);
+  double cosB = dot(eb,eb-pa) / a / c, B = acos(cosB);
+  double cosC = dot(pa,eb) / a / b, C = acos(cosC);
   if(a > r){
     S = (C/2)*r*r;
     h = a*b*sin(C)/c;

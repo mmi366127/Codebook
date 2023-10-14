@@ -19,7 +19,7 @@ convex_hull_3D(const vector<Point> &_P): res(), P(_P) {
     vector<Face> next;
     for (auto f : res) {
       int d = sign(volume(P[f.a], P[f.b], P[f.c], P[i]));
-      if (d <= 0) next.pb(f);
+      if (d <= 0) next.eb(f);
       int ff = (d > 0) - (d < 0);
       flag[f.a][f.b] = flag[f.b][f.c] = flag[f.c][f.a] = ff;
     }

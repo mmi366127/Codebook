@@ -4,7 +4,7 @@ Preprocess:
 1) LCA
 2) dfs with in[u] = dft++, out[u] = dft++
 3) ord[in[u]] = ord[out[u]] = u
-4) bitset<MAXN> inset
+4) bitset<maxn> inset
 */
 struct Query {
   int L, R, LBid, lca;

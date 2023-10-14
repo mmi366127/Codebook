@@ -1,7 +1,7 @@
 struct fraction {
-  ll n, d;
-  fraction(const ll &_n=0, const ll &_d=1): n(_n), d(_d) {
-    ll t = gcd(n, d);
+  int n, d;
+  fraction(const int &_n=0, const int &_d=1): n(_n), d(_d) {
+    int t = gcd(n, d);
     n /= t, d /= t;
     if (d < 0) n = -n, d = -d;
   }

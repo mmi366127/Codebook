@@ -1,10 +1,10 @@
-int TangentDir(vector<pll> &C, pll dir) {
+int TangentDir(vector<pii> &C, pii dir) {
   return cyc_tsearch(SZ(C), [&](int a, int b) {
     return cross(dir, C[a]) > cross(dir, C[b]); 
   });
 }
 #define cmpL(i) sign(cross(C[i] - a, b - a))
-pii lineHull(pll a, pll b, vector<pll> &C) {
+pii lineHull(pii a, pii b, vector<pii> &C) {
   int A = TangentDir(C, a - b);
   int B = TangentDir(C, b - a);
   int n = SZ(C);

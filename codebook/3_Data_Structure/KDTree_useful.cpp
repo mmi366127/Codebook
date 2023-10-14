@@ -180,7 +180,7 @@ private:
         is = 0;
         break;
       }
-    if (is) in_range.push_back(u->pid);
+    if (is) in_range.eb(u->pid);
     if (mi.d[k] <= u->pid.d[k])
       range(u->l, (k + 1) % kd, mi, ma);
     if (ma.d[k] >= u->pid.d[k])

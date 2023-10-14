@@ -96,7 +96,7 @@ struct Delaunay { // 0-base
         for (int i = 0; i < n; ++i)
             for (auto it : head[i])
                 if (it.id >= i)
-                    ret.pb(pii(p[i].id, p[it.id].id));
+                    ret.eb(pii(p[i].id, p[it.id].id));
         return ret;
     }
 } tool;

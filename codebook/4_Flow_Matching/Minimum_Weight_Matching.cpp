@@ -1,11 +1,11 @@
 struct Graph { // 0-base (Perfect Match), n is even
   int n, match[N], onstk[N], stk[N], tp;
-  ll edge[N][N], dis[N];
+  int edge[N][N], dis[N];
   void init(int _n) {
     n = _n, tp = 0;
     for (int i = 0; i < n; ++i) fill_n(edge[i], n, 0);
   }
-  void add_edge(int u, int v, ll w) {
+  void add_edge(int u, int v, int w) {
     edge[u][v] = edge[v][u] = w;
   }
   bool SPFA(int u) {
@@ -24,7 +24,7 @@ struct Graph { // 0-base (Perfect Match), n is even
     onstk[u] = 0, --tp;
     return 0;
   }
-  ll solve() { // find a match
+  int solve() { // find a match
     for (int i = 0; i < n; ++i) match[i] = i ^ 1;
     while (1) {
       int found = 0;
@@ -39,7 +39,7 @@ struct Graph { // 0-base (Perfect Match), n is even
           }
       if (!found) break;
     }
-    ll ret = 0;
+    int ret = 0;
     for (int i = 0; i < n; ++i)
       ret += edge[i][match[i]];
     return ret >> 1;

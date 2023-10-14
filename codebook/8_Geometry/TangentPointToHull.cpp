@@ -1,6 +1,6 @@
 /* The point should be strictly out of hull
   return arbitrary point on the tangent line */
-pii get_tangent(vector<pll> &C, pll p) {
+pii get_tangent(vector<pii> &C, pii p) {
   auto gao = [&](int s) {
     return cyc_tsearch(SZ(C), [&](int x, int y) 
     { return ori(p, C[x], C[y]) == s; });

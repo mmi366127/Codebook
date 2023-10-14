@@ -1,4 +1,4 @@
-int z[MAXn];
+int z[maxn];
 void make_z(const string &s) {
   int l = 0, r = 0;
   for (int i = 1; i < SZ(s); ++i) {
