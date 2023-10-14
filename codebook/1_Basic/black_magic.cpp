@@ -1,3 +1,5 @@
+#pragma GCC optimize("O3,unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #include <ext/pb_ds/priority_queue.hpp>
 #include <ext/pb_ds/assoc_container.hpp> // rb_tree
 #include <ext/rope> // rope
