@@ -9,7 +9,7 @@ int rk[256];
 struct cards{
   vector<pii> v;
   int suit_count[4],hands;
-  void reset(){v.clear(),FILL(suit_count,0),hands=-1;}
+  void reset(){v.clear(),fill(ALL(suit_count),0),hands=-1;}
   void insert(char a,char b){//suit,rank
     ++suit_count[rk[a]];
     int flag=0;
@@ -24,7 +24,7 @@ struct cards{
   void insert(string s){insert(s[0],s[1]);}
   void ready(){
     int Straight=0,Flush=(*max_element(suit_count,suit_count+4)==5);
-    sort(ALL(v),[](ii a,ii b){return a>b;});
+    sort(ALL(v),[](pii a,pii b){return a>b;});
     if(SZ(v)==5&&v[0].Y==v[1].Y+1&&v[1].Y==v[2].Y+1&&v[2].Y==v[3].Y+1&&v[3].Y==v[4].Y+1)
       Straight=1;
     else if(SZ(v)==5&&v[0].Y==12&&v[1].Y==3&&v[2].Y==2&&v[3].Y==1&&v[4].Y==0)

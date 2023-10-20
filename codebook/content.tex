@@ -1,8 +1,4 @@
 \section{Basic}
-%\subsection{Shell script}
-%\lstinputlisting{1_Basic/Shell_script.cpp}
-%\subsection{vimrc}
-%\lstinputlisting{1_Basic/vimrc.cpp}
 \subsection{readchar}
 \lstinputlisting{1_Basic/readchar.cpp}
 \subsection{Black Magic}
@@ -44,20 +40,22 @@
 
 
 \section{Data Structure}
-%\subsection{Discrete Trick}
-%\lstinputlisting{3_Data_Structure/discrete_trick.cpp}
+% \subsection{Discrete Trick}
+% \lstinputlisting{3_Data_Structure/discrete_trick.cpp}
+\subsection{BIT kth*} % test by CSES 1076
+\lstinputlisting{3_Data_Structure/BIT_kth.cpp}
 \subsection{Interval Container*} % test by kactl stress test
 \lstinputlisting{3_Data_Structure/IntervalContainer.cpp}
-%\subsection{Leftist Tree}
-%\lstinputlisting{3_Data_Structure/Leftist_Tree.cpp}
+% \subsection{Leftist Tree}
+% \lstinputlisting{3_Data_Structure/Leftist_Tree.cpp}
 \subsection{Heavy light Decomposition}
 \lstinputlisting{3_Data_Structure/Heavy_light_Decomposition.cpp}
 \subsection{Centroid Decomposition*} % test by TIOJ 1171
 \lstinputlisting{3_Data_Structure/Centroid_Decomposition.cpp}
 % \subsection{Smart Pointer}
 % \lstinputlisting{3_Data_Structure/Smart_Pointer.cpp}
-% \subsection{LiChaoST}
-% \lstinputlisting{3_Data_Structure/LiChaoST.cpp}
+\subsection{LiChaoST*} % test by Library Checker Line Add Get Min
+\lstinputlisting{3_Data_Structure/LiChaoST.cpp}
 \subsection{Link cut tree*} % test by luogu P3690
 \lstinputlisting{3_Data_Structure/link_cut_tree.cpp}
 \subsection{KDTree}
@@ -75,10 +73,10 @@
 \lstinputlisting{4_Flow_Matching/Kuhn_Munkres.cpp}
 \subsection{MincostMaxflow*} % test by luogu 3381
 \lstinputlisting{4_Flow_Matching/MincostMaxflow.cpp}
-\subsection{Maximum Simple Graph Matching} % test by TIOJ 1504
+\subsection{Maximum Simple Graph Matching} % test by Library Checker Matching on General Graph
 \lstinputlisting{4_Flow_Matching/Maximum_Simple_Graph_Matching.cpp}
-\subsection{Minimum Weight Matching (Clique version)*} % test by uoj.ac 81
-\lstinputlisting{4_Flow_Matching/Minimum_Weight_Matching.cpp}
+\subsection{Maximum Weight Matching*} % test by Library Checker General Weighted Matching
+\lstinputlisting{4_Flow_Matching/Maximum_Weight_Matching.cpp}
 \subsection{SW-mincut}
 \lstinputlisting{4_Flow_Matching/SW-mincut.cpp}
 \subsection{BoundedFlow*(Dinic*)} % Maximum boundedflow test by LOJ 116; Minimum boundedflow test by LOJ 117; Dinic test by NTUJ 184
@@ -135,8 +133,8 @@
 \lstinputlisting{6_Math/Miller_Rabin.cpp}
 % \subsection{Big number}
 % \lstinputlisting{6_Math/Big_number.cpp}
-%\subsection{Fraction}
-%\lstinputlisting{6_Math/Fraction.cpp}
+% \subsection{Fraction}
+% \lstinputlisting{6_Math/Fraction.cpp}
 \subsection{Simultaneous Equations}
 \lstinputlisting{6_Math/Simultaneous_Equations.cpp}
 \subsection{Pollard Rho*} % test by Lib-Checker Factorize
@@ -145,8 +143,8 @@
 \lstinputlisting{6_Math/Simplex_Algorithm.cpp}
 \subsubsection{Construction}
 \input{6_Math/SimplexConstruction.tex}
-%\subsection{Schreier-Sims Algorithm*} % test by XVI Opencup GP of Ekaterinburg H
-%\lstinputlisting{6_Math/SchreierSims.cpp}
+% \subsection{Schreier-Sims Algorithm*} % test by XVI Opencup GP of Ekaterinburg H
+% \lstinputlisting{6_Math/SchreierSims.cpp}
 \subsection{chineseRemainder}
 \lstinputlisting{6_Math/chineseRemainder.cpp}
 \subsection{Factorial without prime factor*} % test by luogu P4720
@@ -159,6 +157,8 @@
 \lstinputlisting{6_Math/DiscreteLog.cpp}
 \subsection{Berlekamp Massey}
 \lstinputlisting{6_Math/Berlekamp-Massey.cpp}
+\subsection{Characteristic Polynomial}
+\lstinputlisting{6_Math/Characteristic_Polynomial.cpp}
 \subsection{Primes}
 \lstinputlisting{6_Math/Primes.cpp}
 \subsection{Theorem}
@@ -211,6 +211,8 @@
 \lstinputlisting{8_Geometry/PolyUnion.cpp}
 \subsection{PolyCut}
 \lstinputlisting{8_Geometry/PolyCut.cpp}
+\subsection{Trapezoidalization} % test by aizu CGL_3_C, TIOJ 1403
+\lstinputlisting{8_Geometry/Trapezoidalization.cpp}
 \subsection{Polar Angle Sort*} % test by NTUJ 2270
 \lstinputlisting{8_Geometry/Polar_Angle_Sort.cpp}
 \subsection{Half plane intersection*} % test by qoj 2162 (World Finals' problem)
@@ -233,9 +235,9 @@
 \lstinputlisting{8_Geometry/3Dpoint.cpp}
 \subsection{Convexhull3D*} % test by HDU 3662, Ptz. Summer 2023 olmrgcsi And His Friends' Contest K
 \lstinputlisting{8_Geometry/Convexhull3D.cpp}
-\subsection{DelaunayTriangulation*} % test by Zerojudge b370
-\lstinputlisting{8_Geometry/DelaunayTriangulation.cpp}
-\subsection{Triangulation Vonoroi*} % test by NPSC 2018 territory
+\subsection{DelaunayTriangulation*} % test by Zerojudge b370, TIOJ 1310
+\lstinputlisting{8_Geometry/DelaunayTriangulation_dq.cpp}
+\subsection{Triangulation Vonoroi*} % test by CF 104555 J. Try NPSC 2018 territory?
 \lstinputlisting{8_Geometry/Triangulation_Vonoroi.cpp}
 \subsection{Minkowski Sum*} % test by Zerojudge b398
 \lstinputlisting{8_Geometry/Minkowski_Sum.cpp}
@@ -253,15 +255,15 @@
 \lstinputlisting{9_Else/HilbertCurve.cpp}
 \subsection{DynamicConvexTrick*} % test by TIOJ 1921
 \lstinputlisting{9_Else/DynamicConvexTrick.cpp}
-%\subsection{cyclicLCS}
-%\lstinputlisting{9_Else/cyclicLCS.cpp}
+% \subsection{cyclicLCS}
+% \lstinputlisting{9_Else/cyclicLCS.cpp}
 \subsection{All LCS*} % test by Library Checker prefix-substring LCS
 \lstinputlisting{9_Else/All_LCS.cpp}
 \subsection{DLX*} % test by TIOJ 1333, 1381
 \lstinputlisting{9_Else/DLX.cpp}
 \subsection{Matroid Intersection}
 \input{9_Else/Matroid.tex}
-\subsection{AdaptiveSimpson}
+\subsection{AdaptiveSimpson*} % test by CF 101193J, 100553D
 \lstinputlisting{9_Else/AdaptiveSimpson.cpp}
 \subsection{Simulated Annealing}
 \lstinputlisting{9_Else/simulated_annealing.cpp}
@@ -269,6 +271,13 @@
 \lstinputlisting{9_Else/tree_hash.cpp}
 \subsection{Binary Search On Fraction}
 \lstinputlisting{9_Else/BinarySearchOnFraction.cpp}
+% \subsection{Min Plus Convolution*} % test by Library Checker Min Plus Convolution (Convex and Arbitrary)
+% \lstinputlisting{9_Else/min_plus_convolution.cpp}
+% \subsection{Bitset LCS}
+% \lstinputlisting{9_Else/BitsetLCS.cpp}
+% \subsection{N Queens Problem}
+% \lstinputlisting{9_Else/NQueens.cpp}
+
 \section{Python}
 \subsection{Misc}
 \lstinputlisting[language=Python]{11_Python/misc.py}
