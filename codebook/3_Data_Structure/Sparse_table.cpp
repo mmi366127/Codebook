@@ -2,7 +2,7 @@ struct Sparse_table {
   int st[__lg(maxn) + 1][maxn], n;
   void init(int _n, int *data) {
     n = _n;
-    for (int i = 0; i < n; ++i) st[i][0] = data[i];
+    for (int i = 0; i < n; ++i) st[0][i] = data[i];
     for (int i = 1, t = 2; t < n; t <<= 1, i++)
       for (int j = 0; j + t <= n; j++)
         st[i][j] =
