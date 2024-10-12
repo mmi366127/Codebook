@@ -1,4 +1,4 @@
-vector<pii> Minkowski(vector<pii> A, vector<pii> B) {
+vector<pii> Minkowski(vector<pii> A, vector<pii> B) { // |A|,|B| >= 3
   hull(A), hull(B);
   vector<pii> C(1, A[0] + B[0]), s1, s2; 
   for (int i = 0; i < SZ(A); ++i) 

@@ -1,10 +1,6 @@
 // Push-Relabel implementation of the cost-scaling algorithm
 // Runs in O( <max_flow> * log(V * max_edge_cost)) = O( V^3 * log(V * C))
 // Operates on integers
-
-#include<bits/stdc++.h>
-using namespace std;
-
 template<typename flow_t = int, typename cost_t = int>
 struct mcSFlow{
   struct Edge{
