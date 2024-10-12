@@ -3,6 +3,7 @@
 #include <ext/pb_ds/priority_queue.hpp>
 #include <ext/pb_ds/assoc_container.hpp> // rb_tree
 #include <ext/rope> // rope
+#include <tr2/dynamic_bitset> // tr2::dynamic_bitset<> a(n)
 using namespace __gnu_pbds;
 using namespace __gnu_cxx; // rope
 typedef __gnu_pbds::priority_queue<int> heap;
